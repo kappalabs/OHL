@@ -36,13 +36,13 @@ abstract public class Request extends RequestPkg {
         super();
     }
     
-    /**
-     * Creates a new request of specified type, makes a timestamp.
-     * @param type
-     */
-    public Request(TYPE type) {
-        super(type);
-    }
+//    /**
+//     * Creates a new request of specified type, makes a timestamp.
+//     * @param type
+//     */
+//    public Request(TYPE type) {
+//        super(type);
+//    }
     
     /**
      * Execute the request (done on server side) and return the result.
