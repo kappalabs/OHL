@@ -22,19 +22,10 @@ abstract public class BlockPlaceRequest extends Request {
         this.player = player;
         this.placeKey = placeKey;
     }
-
+    
     @Override
-    public int getID() {
-        return Request.BLOCK_PLACE;
+    public TYPE getType() {
+        return TYPE.BLOCK_PLACE;
     }
-
-//    @Override
-//    public Response execute() throws OHException {
-//        DatabaseService ds = new DatabaseService();
-//        ds.blockPlace(placeKey);
-//        Response response = new Response(player);
-//        
-//        return response;
-//    }
 
 }

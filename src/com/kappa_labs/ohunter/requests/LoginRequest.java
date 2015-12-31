@@ -9,7 +9,7 @@ abstract public class LoginRequest extends Request {
     
     protected String nickname;
     protected String password;
-
+    
     
     /**
      * Creates a new request for comparsion between given photos.
@@ -21,19 +21,10 @@ abstract public class LoginRequest extends Request {
         this.nickname = nickname;
         this.password = password;
     }
-    
+
     @Override
-    public int getID() {
-        return Request.LOGIN;
+    public TYPE getType() {
+        return TYPE.LOGIN;
     }
-    
-//    @Override
-//    public Response execute() throws OHException {
-//        DatabaseService ds = new DatabaseService();
-//        player = ds.loginPlayer(nickname, password);
-//        Response response = new Response(player);
-//        
-//        return response;
-//    }
     
 }

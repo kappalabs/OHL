@@ -19,16 +19,8 @@ abstract public class RemovePlayerRequest extends Request {
     }
     
     @Override
-    public int getID() {
-        return Request.REMOVE_PLAYER;
+    public TYPE getType() {
+        return TYPE.REMOVE_PLAYER;
     }
-    
-//    @Override
-//    public Response execute() throws OHException {
-//        DatabaseService ds = new DatabaseService();
-//        ds.removePlayer(player);
-//        
-//        return null;
-//    }
 
 }

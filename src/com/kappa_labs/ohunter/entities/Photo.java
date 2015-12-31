@@ -2,11 +2,12 @@
 package com.kappa_labs.ohunter.entities;
 
 import java.awt.image.BufferedImage;
+import java.io.Serializable;
 
 /**
  * Class for storing the information about photo retrieved by Google API.
  */
-public class Photo {
+public class Photo implements Serializable {
     
     /**
      * Reference retrieved from Google API.

@@ -23,19 +23,10 @@ abstract public class RejectPlaceRequest extends Request {
         this.player = player;
         this.placeKey = placeKey;
     }
-
+    
     @Override
-    public int getID() {
-        return Request.REJECT_PLACE;
+    public TYPE getType() {
+        return TYPE.REJECT_PLACE;
     }
-
-//    @Override
-//    public Response execute() throws OHException {
-//        DatabaseService ds = new DatabaseService();
-//        ds.rejectPlace(player, placeKey);
-//        Response response = new Response(player);
-//        
-//        return response;
-//    }
 
 }

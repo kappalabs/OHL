@@ -9,6 +9,9 @@ import com.kappa_labs.ohunter.entities.Player;
  */
 abstract public class CompareRequest extends Request {
     
+    /**
+     * Photos to be compared.
+     */
     protected Photo ph1, ph2;
 
     
@@ -24,19 +27,10 @@ abstract public class CompareRequest extends Request {
         this.ph1 = ph1;
         this.ph2 = ph2;
     }
-
-    @Override
-    public int getID() {
-        return Request.COMPARE;
-    }
     
-//    @Override
-//    public Response execute() throws OHException {
-//        float similarity = Analyzer.computeSimilarity(ph1, ph2);
-//        Response response = new Response(uid);
-//        response.similarity = similarity;
-//        
-//        return response;
-//    }
+    @Override
+    public TYPE getType() {
+        return TYPE.COMPARE;
+    }
 
 }

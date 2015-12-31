@@ -1,10 +1,12 @@
 
 package com.kappa_labs.ohunter.net;
 
+import java.io.Serializable;
+
 /**
  * Exception, that can be thrown when communicating from client to this server.
  */
-public class OHException extends Exception {
+public class OHException extends Exception implements Serializable {
     
     /**
      * Specifies type of this exception.

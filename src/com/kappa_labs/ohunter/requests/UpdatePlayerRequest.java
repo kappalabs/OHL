@@ -17,19 +17,10 @@ abstract public class UpdatePlayerRequest extends Request {
     public UpdatePlayerRequest(Player player) {
         this.player = player;
     }
-
-    @Override
-    public int getID() {
-        return Request.UPDATE_PLAYER;
-    }
     
-//    @Override
-//    public Response execute() throws OHException {
-//        DatabaseService ds = new DatabaseService();
-//        ds.updatePlayer(player);
-//        Response response = new Response(player);
-//        
-//        return response;
-//    }
+    @Override
+    public TYPE getType() {
+        return TYPE.UPDATE_PLAYER;
+    }
 
 }

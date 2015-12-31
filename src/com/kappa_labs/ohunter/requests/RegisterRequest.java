@@ -24,17 +24,8 @@ abstract public class RegisterRequest extends Request {
     }
     
     @Override
-    public int getID() {
-        return Request.REGISTER;
+    public TYPE getType() {
+        return TYPE.REGISTER;
     }
-
-//    @Override
-//    public Response execute() throws OHException {
-//        DatabaseService ds = new DatabaseService();
-//        player = ds.registerPlayer(nickname, password);
-//        Response response = new Response(player);
-//        
-//        return response;
-//    }
 
 }

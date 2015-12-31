@@ -26,19 +26,10 @@ abstract public class ChangePasswordRequest extends Request {
         this.oldPassword = oldPassword;
         this.password = password;
     }
-
+    
     @Override
-    public int getID() {
-        return Request.CHANGE_PASSWORD;
+    public TYPE getType() {
+        return TYPE.CHANGE_PASSWORD;
     }
-
-//    @Override
-//    public Response execute() throws OHException {
-//        DatabaseService ds = new DatabaseService();
-//        ds.changePassword(player, oldPassword, password);
-//        Response response = new Response(player);
-//        
-//        return response;
-//    }
     
 }

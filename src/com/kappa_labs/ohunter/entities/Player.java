@@ -1,10 +1,12 @@
 
 package com.kappa_labs.ohunter.entities;
 
+import java.io.Serializable;
+
 /**
  * Representation of a single user of this application.
  */
-public class Player {
+public class Player implements Serializable {
     
     /**
      * Unique integer identifier.

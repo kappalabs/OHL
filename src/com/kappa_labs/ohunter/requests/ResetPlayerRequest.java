@@ -20,17 +20,8 @@ abstract public class ResetPlayerRequest extends Request {
     }
     
     @Override
-    public int getID() {
-        return Request.RESET_PLAYER;
+    public Request.TYPE getType() {
+        return Request.TYPE.RESET_PLAYER;
     }
-
-//    @Override
-//    public Response execute() throws OHException {
-//        DatabaseService ds = new DatabaseService();
-//        ds.resetPlayer(player);
-//        Response response = new Response(player);
-//        
-//        return response;
-//    }
 
 }

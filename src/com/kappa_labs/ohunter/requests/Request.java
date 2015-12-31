@@ -1,7 +1,6 @@
 
 package com.kappa_labs.ohunter.requests;
 
-import com.kappa_labs.ohunter.entities.Player;
 import com.kappa_labs.ohunter.net.OHException;
 import com.kappa_labs.ohunter.net.Response;
 
@@ -9,47 +8,40 @@ import com.kappa_labs.ohunter.net.Response;
 /**
  * Class to provide interface for command pattern.
  */
-abstract public class Request {
+abstract public class Request extends RequestPkg {
     
-    //NOTE: mozna nebude potreba - zamysleno k identifikaci requestu
-    public static final int UNKNOWN = -1;
-    public static final int LOGIN = 1;
-    public static final int REGISTER = 2;
-    public static final int COMPARE = 3;
-    public static final int SEARCH = 4;
-    public static final int REMOVE_PLAYER = 5;
-    public static final int RESET_PLAYER = 6;
-    public static final int UPDATE_PLAYER = 7;
-    public static final int CHANGE_PASSWORD = 8;
-    public static final int COMPLETE_PLACE = 9;
-    public static final int REJECT_PLACE = 10;
-    public static final int BLOCK_PLACE = 11;
-
     /**
-     * Who created the request.
+     * Request identifier for client usage.
      */
-    protected int uid;
-    /**
-     * Time of creation of the request.
-     */
-    protected long time;
-    protected Player player;
+    public enum TYPE {
+        UNKNOWN,
+        LOGIN,
+        REGISTER,
+        COMPARE,
+        SEARCH,
+        REMOVE_PLAYER,
+        RESET_PLAYER,
+        UPDATE_PLAYER,
+        CHANGE_PASSWORD,
+        COMPLETE_PLACE,
+        REJECT_PLACE,
+        BLOCK_PLACE
+    }
 
     
     /**
      * Creates a new request, makes a timestamp.
      */
     public Request() {
-        this.time = System.currentTimeMillis();
+        super();
     }
     
     /**
-     * Gets the ID of request.
-     * 
-     * @return The ID of request.
+     * Creates a new request of specified type, makes a timestamp.
+     * @param type
      */
-    public int getID() {
-        return UNKNOWN;
+    public Request(TYPE type) {
+        super(type);
     }
     
     /**

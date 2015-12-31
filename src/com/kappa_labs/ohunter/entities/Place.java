@@ -3,6 +3,7 @@ package com.kappa_labs.ohunter.entities;
 
 import java.io.File;
 import java.io.IOException;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -11,7 +12,7 @@ import javax.imageio.ImageIO;
 /**
  * Class for storing information about place, retrieved by Google API.
  */
-public class Place {
+public class Place implements Serializable {
 
     /**
      * Default directory for storage of the photos.

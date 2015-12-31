@@ -3,12 +3,13 @@ package com.kappa_labs.ohunter.net;
 
 import com.kappa_labs.ohunter.entities.Place;
 import com.kappa_labs.ohunter.entities.Player;
+import java.io.Serializable;
 import java.util.ArrayList;
 
 /**
  * Wrapper class for the response to previous Request.
  */
-public class Response {
+public class Response implements Serializable {
     
     /**
      * Who created the request.

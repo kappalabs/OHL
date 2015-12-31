@@ -25,17 +25,8 @@ abstract public class CompletePlaceRequest extends Request {
     }
     
     @Override
-    public int getID() {
-        return Request.COMPLETE_PLACE;
+    public TYPE getType() {
+        return TYPE.COMPLETE_PLACE;
     }
-
-//    @Override
-//    public Response execute() throws OHException {
-//        DatabaseService ds = new DatabaseService();
-//        ds.completePlace(player, placeKey);
-//        Response response = new Response(player);
-//        
-//        return response;
-//    }
 
 }
