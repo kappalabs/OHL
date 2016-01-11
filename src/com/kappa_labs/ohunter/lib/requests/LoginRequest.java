@@ -1,11 +1,11 @@
 
-package com.kappa_labs.ohunter.requests;
+package com.kappa_labs.ohunter.lib.requests;
 
 
 /**
  * Request to login a player into the application.
  */
-abstract public class LoginRequest extends Request {
+public class LoginRequest extends Request {
     
     protected String nickname;
     protected String password;
@@ -21,10 +21,22 @@ abstract public class LoginRequest extends Request {
         this.nickname = nickname;
         this.password = password;
     }
-
-    @Override
-    public TYPE getType() {
-        return TYPE.LOGIN;
+    
+    public LoginRequest(LoginRequest lr) {
+        nickname = lr.nickname;
+        password = lr.password;
     }
+
+//    @Override
+//    public RequestPkg getRequestPkg() {
+//        return new RequestPkg(
+//                TYPE.LOGIN,
+//                new Object[]{nickname, password});
+//    }
+
+//    @Override
+//    public TYPE getType() {
+//        return TYPE.LOGIN;
+//    }
     
 }

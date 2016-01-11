@@ -1,11 +1,11 @@
 
-package com.kappa_labs.ohunter.requests;
+package com.kappa_labs.ohunter.lib.requests;
 
 
 /**
  * Request to register a new player.
  */
-abstract public class RegisterRequest extends Request {
+public class RegisterRequest extends Request {
     
     protected String nickname;
     protected String password;
@@ -23,9 +23,21 @@ abstract public class RegisterRequest extends Request {
         this.password = password;
     }
     
-    @Override
-    public TYPE getType() {
-        return TYPE.REGISTER;
+    public RegisterRequest(RegisterRequest rr) {
+        nickname = rr.nickname;
+        password = rr.password;
     }
+
+//    @Override
+//    public RequestPkg getRequestPkg() {
+//        return new RequestPkg(
+//                TYPE.REGISTER,
+//                new Object[]{nickname, password});
+//    }
+    
+//    @Override
+//    public TYPE getType() {
+//        return TYPE.REGISTER;
+//    }
 
 }

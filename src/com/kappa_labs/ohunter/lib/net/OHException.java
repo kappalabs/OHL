@@ -1,5 +1,5 @@
 
-package com.kappa_labs.ohunter.net;
+package com.kappa_labs.ohunter.lib.net;
 
 import java.io.Serializable;
 

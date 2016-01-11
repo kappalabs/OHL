@@ -1,10 +1,11 @@
 
-package com.kappa_labs.ohunter.net;
+package com.kappa_labs.ohunter.lib.net;
 
-import com.kappa_labs.ohunter.entities.Place;
-import com.kappa_labs.ohunter.entities.Player;
+import com.kappa_labs.ohunter.lib.entities.Place;
+import com.kappa_labs.ohunter.lib.entities.Player;
 import java.io.Serializable;
 import java.util.ArrayList;
+
 
 /**
  * Wrapper class for the response to previous Request.
@@ -22,7 +23,7 @@ public class Response implements Serializable {
     
     //NOTE: supported data objects
     public Player player;
-    public float similarity;
+    public float similarity = Float.NaN;
     public ArrayList<Place> places;
     
     
@@ -46,6 +47,5 @@ public class Response implements Serializable {
         
         this.player = player;
     }
-    
     
 }

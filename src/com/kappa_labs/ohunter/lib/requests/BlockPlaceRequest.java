@@ -1,13 +1,13 @@
 
-package com.kappa_labs.ohunter.requests;
+package com.kappa_labs.ohunter.lib.requests;
 
-import com.kappa_labs.ohunter.entities.Player;
+import com.kappa_labs.ohunter.lib.entities.Player;
 
 
 /**
  * Request to block a place for all players.
  */
-abstract public class BlockPlaceRequest extends Request {
+public class BlockPlaceRequest extends Request {
     
     protected String placeKey;
 
@@ -23,9 +23,14 @@ abstract public class BlockPlaceRequest extends Request {
         this.placeKey = placeKey;
     }
     
-    @Override
-    public TYPE getType() {
-        return TYPE.BLOCK_PLACE;
+    public BlockPlaceRequest(BlockPlaceRequest bpr) {
+        player = bpr.player;
+        placeKey = bpr.placeKey;
     }
+    
+//    @Override
+//    public TYPE getType() {
+//        return TYPE.BLOCK_PLACE;
+//    }
 
 }

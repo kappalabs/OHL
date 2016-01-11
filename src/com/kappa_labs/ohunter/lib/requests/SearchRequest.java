@@ -1,12 +1,12 @@
 
-package com.kappa_labs.ohunter.requests;
+package com.kappa_labs.ohunter.lib.requests;
 
-import com.kappa_labs.ohunter.entities.Player;
+import com.kappa_labs.ohunter.lib.entities.Player;
 
 /**
  * Request to make a search and return places for given area.
  */
-abstract public class SearchRequest extends Request {
+public class SearchRequest extends Request {
     
     /**
      * Types of objects, that will be returned as result photos, supported by GAPI.
@@ -44,12 +44,29 @@ abstract public class SearchRequest extends Request {
         this.height = height;
         
         this.uid = player.getUID();
-//        this.time = System.currentTimeMillis();
     }
     
-    @Override
-    public TYPE getType() {
-        return TYPE.SEARCH;
+    public SearchRequest(SearchRequest sr) {
+        player = sr.player;
+        lat = sr.lat;
+        lng = sr.lng;
+        radius = sr.radius;
+        width = sr.width;
+        height = sr.height;
+        
+        uid = sr.uid;
     }
+
+//    @Override
+//    public RequestPkg getRequestPkg() {
+//        return new RequestPkg(
+//                TYPE.SEARCH,
+//                new Object[]{player, lat, lng, radius, width, height});
+//    }
+    
+//    @Override
+//    public TYPE getType() {
+//        return TYPE.SEARCH;
+//    }
     
 }

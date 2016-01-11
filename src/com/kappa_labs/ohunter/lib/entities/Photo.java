@@ -1,7 +1,6 @@
 
-package com.kappa_labs.ohunter.entities;
+package com.kappa_labs.ohunter.lib.entities;
 
-import java.awt.image.BufferedImage;
 import java.io.Serializable;
 
 /**
@@ -13,8 +12,17 @@ public class Photo implements Serializable {
      * Reference retrieved from Google API.
      */
     public String reference;
-    public BufferedImage image;
-    public BufferedImage _image;
+    /**
+     * The image retrieved from Google API.
+     */
+    public SImage image;
+//    public transient BufferedImage image;
+    /**
+     * Stores segmented photo for debug purposes.
+     */
+    public SImage _image;
+//    public transient BufferedImage _image;
+    
     
     /**
      * Return the widht of assigned image or 0 if not initialized yet.
@@ -32,6 +40,11 @@ public class Photo implements Serializable {
         return (image == null) ? 0 : image.getHeight();
     }
 
+    /**
+     * Get string description of this instance.
+     * 
+     * @return String description of this instance.
+     */
     @Override
     public String toString() {
         return "Photo: " + getWidth() + "x" + getHeight() + "; ref = " + reference;

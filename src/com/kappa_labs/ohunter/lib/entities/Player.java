@@ -1,5 +1,5 @@
 
-package com.kappa_labs.ohunter.entities;
+package com.kappa_labs.ohunter.lib.entities;
 
 import java.io.Serializable;
 
@@ -15,7 +15,7 @@ public class Player implements Serializable {
     /**
      * Unique name.
      */
-    private String nickname;
+    private final String nickname;
     /**
      * Indicator of success, should always be non-negative.
      */
@@ -76,7 +76,5 @@ public class Player implements Serializable {
     public String toString() {
         return "Player "+nickname+"["+UID+"] ("+score+"pts)";
     }
-    
-    
     
 }
