@@ -14,6 +14,7 @@ public class OHException extends Exception implements Serializable {
     public enum EXType {
         DUPLICATE_USER, INCORRECT_PASSWORD, INCORRECT_USER, INCORRECT_PASS_OR_NO_USER,
         DATABASE_ERROR, /* this error type means try it later again */
+        SERIALIZATION_INCOMPATIBLE,
         OTHER
     }
     
