@@ -68,8 +68,10 @@ public class Place implements Serializable {
     
     @Override
     public String toString() {
-        return "Place: [" + longitude + ";" + latitude + "]; ID = " + place_id
-                + "; #photos = " + ((photos == null) ? "null" : photos.size());
+        return "Place:"
+                + " [" + String.format("%.7f", latitude) + ";" + String.format("%.7f", longitude) + "];"
+                + " ID = " + place_id + ";"
+                + " #photos = " + ((photos == null) ? "null" : photos.size());
     }
     
     /**
@@ -80,18 +82,15 @@ public class Place implements Serializable {
      */
     private void writeObject(ObjectOutputStream oos) throws IOException {
         oos.defaultWriteObject();
-        System.out.println("serializuji");
         ArrayList<Photo> phs = null;
         if (photos != null) {
             phs = new ArrayList<>();
             for (Photo p : photos) {
                 if (p.image != null) {//&& !(p.image instanceof SImage)) {
-                    System.out.println("pretypovavam image");
 //                    p.image = p.image.getSImage();
                     p.image = new SImage(p.image.getImage(), p.image.width, p.image.height);
                 }
                 if (p._image != null) {//&& !(p._image instanceof SImage)) {
-                    System.out.println("pretypovavam _image");
 //                    p._image = p._image.getSImage();
                     p._image = new SImage(p._image.getImage(), p._image.width, p._image.height);
                 }

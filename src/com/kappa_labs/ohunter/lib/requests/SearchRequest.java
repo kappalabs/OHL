@@ -1,6 +1,7 @@
 
 package com.kappa_labs.ohunter.lib.requests;
 
+import com.kappa_labs.ohunter.lib.entities.Photo;
 import com.kappa_labs.ohunter.lib.entities.Player;
 
 /**
@@ -31,11 +32,13 @@ public class SearchRequest extends Request {
      * @param player The player who is requesting the search.
      * @param lat The latitude of location.
      * @param lng The longitude of location.
-     * @param radius The radius of selected area.
+     * @param radius The radius of selected area in meters.
+     * @param daytime The requested preffered daytime
      * @param width The requested width of photos.
      * @param height The requested height of photos.
      */
-    public SearchRequest(Player player, double lat, double lng, int radius, int width, int height) {
+    public SearchRequest(Player player, double lat, double lng, int radius,
+            Photo.DAYTIME daytime, int width, int height) {
         this.player = player;
         this.lat = lat;
         this.lng = lng;

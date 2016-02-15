@@ -9,6 +9,19 @@ import java.io.Serializable;
 public class Photo implements Serializable {
     
     /**
+     * Enum for information about the time this photo was taken in.
+     */
+    public static enum DAYTIME {
+        DAY,
+        NIGHT,
+        UNKNOWN
+    }
+    
+    /**
+     * Stores information about the time this photo was taken in.
+     */
+    public DAYTIME daytime = DAYTIME.UNKNOWN;
+    /**
      * Reference retrieved from Google API.
      */
     public String reference;
@@ -16,12 +29,10 @@ public class Photo implements Serializable {
      * The image retrieved from Google API.
      */
     public SImage image;
-//    public transient BufferedImage image;
     /**
      * Stores segmented photo for debug purposes.
      */
     public SImage _image;
-//    public transient BufferedImage _image;
     
     
     /**
