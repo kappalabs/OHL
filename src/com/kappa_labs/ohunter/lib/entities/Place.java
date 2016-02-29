@@ -18,10 +18,6 @@ public class Place implements Serializable {
     public static final String PHOTOS_DIR = "places/";
     
     /**
-     * Place unique identifier.
-     */
-    public String place_id;
-    /**
      * Place location longitude.
      */
     public double longitude;
@@ -29,6 +25,31 @@ public class Place implements Serializable {
      * Place location latitude.
      */
     public double latitude;
+    /**
+     * Contains the URL of a suggested icon which may be displayed to
+     * the user when indicating this result on a map.
+     */
+    public String icon;
+    /**
+     * Contains the human-readable address of this place.
+     */
+    public String formatted_address;
+    /**
+     * Contains the human-readable name for the returned result.
+     */
+    public String name;
+    /**
+     * Place unique identifier.
+     */
+    public String place_id;
+    /**
+     * Contains the URL of the official Google page for this place.
+     */
+    public String url;
+    /**
+     * The authoritative website for this place.
+     */
+    public String website;
     
     /**
      * Stores all photos assigned to this specific place.
