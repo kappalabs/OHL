@@ -6,6 +6,7 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 /**
  * Class for storing information about place, retrieved by Google API.
@@ -26,30 +27,9 @@ public class Place implements Serializable {
      */
     public double latitude;
     /**
-     * Contains the URL of a suggested icon which may be displayed to
-     * the user when indicating this result on a map.
+     * Stores information given from Google Place Details request.
      */
-    public String icon;
-    /**
-     * Contains the human-readable address of this place.
-     */
-    public String formatted_address;
-    /**
-     * Contains the human-readable name for the returned result.
-     */
-    public String name;
-    /**
-     * Place unique identifier.
-     */
-    public String place_id;
-    /**
-     * Contains the URL of the official Google page for this place.
-     */
-    public String url;
-    /**
-     * The authoritative website for this place.
-     */
-    public String website;
+    public HashMap<String, String> gfields;
     
     /**
      * Stores all photos assigned to this specific place.
@@ -62,6 +42,7 @@ public class Place implements Serializable {
      */
     public Place() {
         photos = new ArrayList<>();
+        gfields = new HashMap<>(10);
     }
     
 //    /**
@@ -87,11 +68,20 @@ public class Place implements Serializable {
 //        }
 //    }
     
+    /**
+     * Gets the unique identifier for this place.
+     * 
+     * @return The unique identifier for this place.
+     */
+    public String getID() {
+        return gfields.get("place_id");
+    }
+    
     @Override
     public String toString() {
         return "Place:"
                 + " [" + String.format("%.7f", latitude) + ";" + String.format("%.7f", longitude) + "];"
-                + " ID = " + place_id + ";"
+                + " ID = " + getID() + ";"
                 + " #photos = " + ((photos == null) ? "null" : photos.size());
     }
     
