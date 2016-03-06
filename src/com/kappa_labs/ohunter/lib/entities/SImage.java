@@ -2,15 +2,24 @@
 package com.kappa_labs.ohunter.lib.entities;
 
 import java.io.Serializable;
-
+import java.util.Arrays;
 
 /**
- * Class to store image with possibility to send it over TCP.
+ * Class to store bytes with possibility to send it over TCP (Serializable Image).
  */
 public class SImage implements Serializable {
     
-    public byte[] image;
+    /**
+     * Image stored in encoded form in byte array.
+     */
+    public byte[] bytes;
+    /**
+     * Width of the stored image.
+     */
     protected int width;
+    /**
+     * Height of the stored image.
+     */
     protected int height;
 
     
@@ -22,32 +31,45 @@ public class SImage implements Serializable {
     /**
      * Creates a new SImage with fields initialized to given values.
      * 
-     * @param image Image data in 3BYTE BRG format.
-     * @param width
-     * @param height 
+     * @param bytes Byte data of the image.
+     * @param width Width of the image.
+     * @param height Height of the image.
      */
-    public SImage(byte[] image, int width, int height) {
-        this.image = image;
+    public SImage(byte[] bytes, int width, int height) {
+        this.bytes = bytes;
         this.width = width;
         this.height = height;
     }
+    
+    /**
+     * Creates a deep copy of the given SImage.
+     * 
+     * @param sImage The SImage to be copied.
+     */
+    public SImage(SImage sImage) {
+        if (sImage.bytes != null) {
+            this.bytes = Arrays.copyOf(sImage.bytes, sImage.bytes.length);
+        }
+        this.width = sImage.width;
+        this.height = sImage.height;
+    }
 
     /**
-     * Gets the image data of this SImage.
+     * Gets the byte data of this image.
      * 
-     * @return The image data of this SImage.
+     * @return The byte data of this image.
      */
-    public byte[] getImage() {
-        return image;
+    public byte[] getBytes() {
+        return bytes;
     }
     
     /**
-     * Sets the image data of this SImage.
+     * Sets the byte data of this image.
      * 
-     * @param image The image data to be set to this SImage.
+     * @param image The byte data to be set.
      */
-    public void setImage(byte[] image) {
-        this.image = image;
+    public void setBytes(byte[] image) {
+        this.bytes = image;
     }
     
     /**

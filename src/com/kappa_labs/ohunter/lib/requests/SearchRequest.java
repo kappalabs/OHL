@@ -8,21 +8,31 @@ import com.kappa_labs.ohunter.lib.entities.Player;
  * Request to make a search and return places for given area.
  */
 public class SearchRequest extends Request {
-    
-    /**
-     * Types of objects, that will be returned as result photos, supported by GAPI.
-     */
-    public static final String TYPES = "university|synagogue|city_hall|church|museum|mosque|";
 
-    protected double lat;
-    protected double lng;
-    protected String keyWord;
-    protected int radius;
-    
     /**
-     * Based on Android device, it can request photos with suitable dimensions.
+     * Latitude of the circular area.
      */
-    protected int width, height;
+    protected double lat;
+    /**
+     * Longitude of the circular area.
+     */
+    protected double lng;
+    /**
+     * Radius of the circular area.
+     */
+    protected int radius;
+    /**
+     * Preffered daytime.
+     */
+    protected Photo.DAYTIME daytime;
+    /**
+     * Maximum width of the images.
+     */
+    protected int width;
+    /**
+     * Maximum height of the images.
+     */
+    protected int height;
     
 
     /**
@@ -34,42 +44,35 @@ public class SearchRequest extends Request {
      * @param lng The longitude of location.
      * @param radius The radius of selected area in meters.
      * @param daytime The requested preffered daytime
-     * @param width The requested width of photos.
-     * @param height The requested height of photos.
+     * @param width The maximum requested width of photos.
+     * @param height The maximum requested height of photos.
      */
     public SearchRequest(Player player, double lat, double lng, int radius,
             Photo.DAYTIME daytime, int width, int height) {
-        this.player = player;
+        super(player);
+        
         this.lat = lat;
         this.lng = lng;
         this.radius = radius;
+        this.daytime = daytime;
         this.width = width;
         this.height = height;
-        
-        this.uid = player.getUID();
     }
     
-    public SearchRequest(SearchRequest sr) {
-        player = sr.player;
-        lat = sr.lat;
-        lng = sr.lng;
-        radius = sr.radius;
-        width = sr.width;
-        height = sr.height;
+    /**
+     * Create deep copy of the given request.
+     * 
+     * @param request Request to be copied.
+     */
+    public SearchRequest(SearchRequest request) {
+        super(request);
         
-        uid = sr.uid;
+        lat = request.lat;
+        lng = request.lng;
+        radius = request.radius;
+        daytime = request.daytime;
+        width = request.width;
+        height = request.height;
     }
-
-//    @Override
-//    public RequestPkg getRequestPkg() {
-//        return new RequestPkg(
-//                TYPE.SEARCH,
-//                new Object[]{player, lat, lng, radius, width, height});
-//    }
-    
-//    @Override
-//    public TYPE getType() {
-//        return TYPE.SEARCH;
-//    }
     
 }

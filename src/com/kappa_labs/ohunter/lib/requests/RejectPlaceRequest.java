@@ -9,7 +9,10 @@ import com.kappa_labs.ohunter.lib.entities.Player;
  */
 public class RejectPlaceRequest extends Request {
     
-    protected String placeKey;
+    /**
+     * Place ID from Google Places of the Place to block.
+     */
+    protected String placeID;
     
     
     /**
@@ -17,28 +20,23 @@ public class RejectPlaceRequest extends Request {
      * for given player.
      * 
      * @param player Player, who is rejecting the place.
-     * @param placeKey The place key, that identifies the place to be rejected.
+     * @param placeID Place ID from Google Places, that identifies the place to be rejected.
      */
-    public RejectPlaceRequest(Player player, String placeKey) {
-        this.player = player;
-        this.placeKey = placeKey;
+    public RejectPlaceRequest(Player player, String placeID) {
+        super(player);
+        
+        this.placeID = placeID;
     }
     
-    public RejectPlaceRequest(RejectPlaceRequest rpr) {
-        player = rpr.player;
-        placeKey = rpr.placeKey;
+    /**
+     * Create deep copy of the given request.
+     * 
+     * @param request Request to be copied.
+     */
+    public RejectPlaceRequest(RejectPlaceRequest request) {
+        super(request);
+        
+        placeID = request.placeID;
     }
-
-//    @Override
-//    public RequestPkg getRequestPkg() {
-//        return new RequestPkg(
-//                TYPE.REJECT_PLACE,
-//                new Object[]{player, placeKey});
-//    }
-    
-//    @Override
-//    public TYPE getType() {
-//        return TYPE.REJECT_PLACE;
-//    }
 
 }

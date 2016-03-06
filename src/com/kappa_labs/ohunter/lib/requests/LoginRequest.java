@@ -1,13 +1,18 @@
 
 package com.kappa_labs.ohunter.lib.requests;
 
-
 /**
  * Request to login a player into the application.
  */
 public class LoginRequest extends Request {
     
+    /**
+     * The nickname of the player.
+     */
     protected String nickname;
+    /**
+     * The password of the player.
+     */
     protected String password;
     
     
@@ -18,25 +23,22 @@ public class LoginRequest extends Request {
      * @param password The password hash.
      */
     public LoginRequest(String nickname, String password) {
+        super();
+        
         this.nickname = nickname;
         this.password = password;
     }
     
-    public LoginRequest(LoginRequest lr) {
-        nickname = lr.nickname;
-        password = lr.password;
+    /**
+     * Create deep copy of the given request.
+     * 
+     * @param request Request to be copied.
+     */
+    public LoginRequest(LoginRequest request) {
+        super(request);
+        
+        nickname = request.nickname;
+        password = request.password;
     }
-
-//    @Override
-//    public RequestPkg getRequestPkg() {
-//        return new RequestPkg(
-//                TYPE.LOGIN,
-//                new Object[]{nickname, password});
-//    }
-
-//    @Override
-//    public TYPE getType() {
-//        return TYPE.LOGIN;
-//    }
     
 }

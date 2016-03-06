@@ -3,13 +3,15 @@ package com.kappa_labs.ohunter.lib.requests;
 
 import com.kappa_labs.ohunter.lib.entities.Player;
 
-
 /**
  * Request to complete a place for a player.
  */
 public class CompletePlaceRequest extends Request {
     
-    protected String placeKey;
+    /**
+     * Place ID from Google Places of the Place to block.
+     */
+    protected String placeID;
 
     
     /**
@@ -17,28 +19,23 @@ public class CompletePlaceRequest extends Request {
      * for given player.
      * 
      * @param player Player, who completed the place.
-     * @param placeKey Identifier of the place, that was completed.
+     * @param placeID Place ID from Google Places of the place, that was completed.
      */
-    public CompletePlaceRequest(Player player, String placeKey) {
-        this.player = player;
-        this.placeKey = placeKey;
+    public CompletePlaceRequest(Player player, String placeID) {
+        super(player);
+        
+        this.placeID = placeID;
     }
     
-    public CompletePlaceRequest(CompletePlaceRequest cpr) {
-        player = cpr.player;
-        placeKey = cpr.placeKey;
+    /**
+     * Create deep copy of the given request.
+     * 
+     * @param request Request to be copied.
+     */
+    public CompletePlaceRequest(CompletePlaceRequest request) {
+        super(request);
+        
+        placeID = request.placeID;
     }
-
-//    @Override
-//    public RequestPkg getRequestPkg() {
-//        return new RequestPkg(
-//                TYPE.COMPLETE_PLACE,
-//                new Object[]{player, placeKey});
-//    }
-    
-//    @Override
-//    public TYPE getType() {
-//        return TYPE.COMPLETE_PLACE;
-//    }
 
 }

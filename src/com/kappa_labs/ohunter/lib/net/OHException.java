@@ -18,7 +18,7 @@ public class OHException extends Exception implements Serializable {
         OTHER
     }
     
-    private EXType exType;
+    private final EXType exType;
 
     /**
      * Creates new exception, message and type must be specified.

@@ -3,7 +3,6 @@ package com.kappa_labs.ohunter.lib.requests;
 
 import com.kappa_labs.ohunter.lib.entities.Player;
 
-
 /**
  * Request to update players settings in database.
  */
@@ -15,23 +14,16 @@ public class UpdatePlayerRequest extends Request {
      * @param player The player, whose values should be updated in database.
      */
     public UpdatePlayerRequest(Player player) {
-        this.player = player;
+        super(player);
     }
     
-    public UpdatePlayerRequest(UpdatePlayerRequest upr) {
-        player = upr.player;
+    /**
+     * Create deep copy of the given request.
+     * 
+     * @param request Request to be copied.
+     */
+    public UpdatePlayerRequest(UpdatePlayerRequest request) {
+        player = request.player;
     }
-
-//    @Override
-//    public RequestPkg getRequestPkg() {
-//        return new RequestPkg(
-//                TYPE.UPDATE_PLAYER,
-//                new Object[]{player});
-//    }
-    
-//    @Override
-//    public TYPE getType() {
-//        return TYPE.UPDATE_PLAYER;
-//    }
 
 }

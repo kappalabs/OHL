@@ -5,44 +5,22 @@ import com.kappa_labs.ohunter.lib.entities.Player;
 import com.kappa_labs.ohunter.lib.net.OHException;
 import com.kappa_labs.ohunter.lib.net.Response;
 import java.io.Serializable;
-import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
-
 
 /**
  * Class to provide interface for command pattern.
  */
 abstract public class Request implements Serializable {
     
-//    /**
-//     * Request identifier for client usage.
-//     */
-//    public enum TYPE {
-//        UNKNOWN,
-//        LOGIN,
-//        REGISTER,
-//        COMPARE,
-//        SEARCH,
-//        REMOVE_PLAYER,
-//        RESET_PLAYER,
-//        UPDATE_PLAYER,
-//        CHANGE_PASSWORD,
-//        COMPLETE_PLACE,
-//        REJECT_PLACE,
-//        BLOCK_PLACE
-//    }
-
     /**
-     * Who created the request.
+     * Unique identifier of the requester.
      */
     protected int uid;
-    
     /**
      * Time of creation of the request.
      */
-    private final long time;
-    
+    protected final long time;
     /**
      * Creator of this request.
      */
@@ -54,6 +32,29 @@ abstract public class Request implements Serializable {
      */
     public Request() {
         this.time = System.currentTimeMillis();
+    }
+    
+    /**
+     * Creates a new request for given player.
+     * 
+     * @param player Player who makes the request.
+     */
+    public Request(Player player) {
+        this();
+        
+        this.player = player;
+        this.uid = player.getUID();
+    }
+    
+    /**
+     * Creates a deep copy of the given request.
+     * 
+     * @param request Request to be copied.
+     */
+    public Request(Request request) {
+        this.uid = request.uid;
+        this.time = request.time;
+        this.player = request.player;
     }
     
     /**
@@ -89,7 +90,7 @@ abstract public class Request implements Serializable {
     
     @Override
     public String toString() {
-        return this.getClass().getName() + ": " + getTimeStamp();
+        return this.getClass().getName() + " [" + (player == null ? "uid" : player.getUID()) + "]:" + getTimeStamp();
     }
     
 }

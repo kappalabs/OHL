@@ -28,27 +28,29 @@ public class Photo implements Serializable {
     /**
      * The image retrieved from Google API.
      */
-    public SImage image;
+    public SImage sImage;
     /**
-     * Stores segmented photo for debug purposes.
+     * Can be used for debug purposes.
      */
-    public SImage _image;
+    public SImage _sImage;
     
     
     /**
-     * Return the widht of assigned image or 0 if not initialized yet.
-     * @return The widht of assigned image or 0 if not initialized yet.
+     * Return the width of assigned image or 0 if not initialized yet.
+     * 
+     * @return The width of assigned image or 0 if not initialized yet.
      */
     public int getWidth() {
-        return (image == null) ? 0 : image.getWidth();
+        return (sImage == null) ? 0 : sImage.getWidth();
     }
     
     /**
      * Return the height of assigned image or 0 if not initialized yet.
+     * 
      * @return The height of assigned image or 0 if not initialized yet.
      */
     public int getHeight() {
-        return (image == null) ? 0 : image.getHeight();
+        return (sImage == null) ? 0 : sImage.getHeight();
     }
 
     /**

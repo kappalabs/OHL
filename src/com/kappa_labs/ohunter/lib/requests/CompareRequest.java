@@ -12,38 +12,33 @@ public class CompareRequest extends Request {
     /**
      * Photos to be compared.
      */
-    protected Photo ph1, ph2;
+    protected Photo photo1, photo2;
 
     
     /**
      * Creates a new request for comparsion between given photos.
      * 
-     * @param player Who created the request.
-     * @param ph1 First photo.
-     * @param ph2 Second photo.
+     * @param player Player, that creates the request.
+     * @param photo1 First photo.
+     * @param photo2 Second photo.
      */
-    public CompareRequest(Player player, Photo ph1, Photo ph2) {
-        this.player = player;
-        this.ph1 = ph1;
-        this.ph2 = ph2;
+    public CompareRequest(Player player, Photo photo1, Photo photo2) {
+        super(player);
+        
+        this.photo1 = photo1;
+        this.photo2 = photo2;
     }
     
-    public CompareRequest(CompareRequest cr) {
-        player = cr.player;
-        ph1 = cr.ph1;
-        ph2 = cr.ph2;
+    /**
+     * Create deep copy of the given request.
+     * 
+     * @param request Request to be copied.
+     */
+    public CompareRequest(CompareRequest request) {
+        super(request);
+        
+        photo1 = request.photo1;
+        photo2 = request.photo2;
     }
-    
-//    @Override
-//    public RequestPkg getRequestPkg() {
-//        return new RequestPkg(
-//                TYPE.COMPARE,
-//                new Object[]{player, ph1, ph2});
-//    }
-    
-//    @Override
-//    public TYPE getType() {
-//        return TYPE.COMPARE;
-//    }
 
 }

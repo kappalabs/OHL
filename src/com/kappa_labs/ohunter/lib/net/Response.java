@@ -4,8 +4,6 @@ package com.kappa_labs.ohunter.lib.net;
 import com.kappa_labs.ohunter.lib.entities.Place;
 import com.kappa_labs.ohunter.lib.entities.Player;
 import java.io.Serializable;
-import java.util.ArrayList;
-
 
 /**
  * Wrapper class for the response to previous Request.
@@ -21,14 +19,22 @@ public class Response implements Serializable {
      */
     protected long time;
     
-    //NOTE: supported data objects
+    /**
+     * Player data object if requested, otherwise null.
+     */
     public Player player;
+    /**
+     * Similarity measure if requested, otherwise NaN.
+     */
     public float similarity = Float.NaN;
-    public ArrayList<Place> places;
+    /**
+     * List of Places if requested, otherwise null.
+     */
+    public Place[] places;
     
     
     /**
-     * Create a new response by specifiing the reciever of it.
+     * Create a new response by specifying the reciever of it.
      * 
      * @param uid The reciever player ID, who requested the command.
      */
@@ -38,7 +44,7 @@ public class Response implements Serializable {
     }
 
     /**
-     * Create a new response by specifiing the reciever of it.
+     * Create a new response by specifying the reciever of it.
      * 
      * @param player The reciever player, who requested the command.
      */

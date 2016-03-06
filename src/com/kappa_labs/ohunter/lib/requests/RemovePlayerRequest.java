@@ -3,7 +3,6 @@ package com.kappa_labs.ohunter.lib.requests;
 
 import com.kappa_labs.ohunter.lib.entities.Player;
 
-
 /**
  * Request to remove player from database.
  */
@@ -15,23 +14,16 @@ public class RemovePlayerRequest extends Request {
      * @param player Player, who should be removed from the database.
      */
     public RemovePlayerRequest(Player player) {
-        this.player = player;
+        super(player);
     }
     
-    public RemovePlayerRequest(RemovePlayerRequest rpr) {
-        player = rpr.player;
+    /**
+     * Create deep copy of the given request.
+     * 
+     * @param request Request to be copied.
+     */
+    public RemovePlayerRequest(RemovePlayerRequest request) {
+        super(request);
     }
-
-//    @Override
-//    public RequestPkg getRequestPkg() {
-//        return new RequestPkg(
-//                TYPE.REMOVE_PLAYER,
-//                new Object[]{player});
-//    }
-    
-//    @Override
-//    public TYPE getType() {
-//        return TYPE.REMOVE_PLAYER;
-//    }
 
 }

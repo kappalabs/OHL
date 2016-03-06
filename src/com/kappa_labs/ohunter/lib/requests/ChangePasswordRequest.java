@@ -3,47 +3,46 @@ package com.kappa_labs.ohunter.lib.requests;
 
 import com.kappa_labs.ohunter.lib.entities.Player;
 
-
 /**
- * Request to change password of existing player.
+ * Request to change newPassword of existing player.
  */
 public class ChangePasswordRequest extends Request {
     
-//    protected String nickname;
+    /**
+     * The old newPassword to be changed.
+     */
     protected String oldPassword;
-    protected String password;
+    /**
+     * The new newPassword to be set.
+     */
+    protected String newPassword;
 
     
     /**
-     * Creates a new request to change password hash of given
-     * player to given password hash.
+     * Creates a new request to change newPassword of given player
+ to given new newPassword.
      * 
-     * @param player The Player, whose password will be changed.
-     * @param oldPassword
-     * @param password The password hash.
+     * @param player The Player, whose newPassword will be changed.
+     * @param oldPassword The old newPassword to be changed.
+     * @param newPassword The new newPassword to be set.
      */
-    public ChangePasswordRequest(Player player, String oldPassword, String password) {
-        this.player = player;
+    public ChangePasswordRequest(Player player, String oldPassword, String newPassword) {
+        super(player);
+        
         this.oldPassword = oldPassword;
-        this.password = password;
+        this.newPassword = newPassword;
     }
     
-    public ChangePasswordRequest(ChangePasswordRequest cpr) {
-        player = cpr.player;
-        oldPassword = cpr.oldPassword;
-        password = cpr.password;
+    /**
+     * Create deep copy of the given request.
+     * 
+     * @param request Request to be copied.
+     */
+    public ChangePasswordRequest(ChangePasswordRequest request) {
+        super(request);
+        
+        oldPassword = request.oldPassword;
+        newPassword = request.newPassword;
     }
-
-//    @Override
-//    public RequestPkg getRequestPkg() {
-//        return new RequestPkg(
-//                TYPE.CHANGE_PASSWORD,
-//                new Object[]{player, oldPassword, password});
-//    }
-    
-//    @Override
-//    public TYPE getType() {
-//        return TYPE.CHANGE_PASSWORD;
-//    }
     
 }

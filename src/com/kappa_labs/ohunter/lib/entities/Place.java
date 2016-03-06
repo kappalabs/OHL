@@ -12,11 +12,6 @@ import java.util.HashMap;
  * Class for storing information about place, retrieved by Google API.
  */
 public class Place implements Serializable {
-
-    /**
-     * Default directory for storage of the photos.
-     */
-    public static final String PHOTOS_DIR = "places/";
     
     /**
      * Place location longitude.
@@ -44,29 +39,6 @@ public class Place implements Serializable {
         photos = new ArrayList<>();
         gfields = new HashMap<>(10);
     }
-    
-//    /**
-//     * Stores all photos in this object into local directory.
-//     * 
-//     * @param directory Directory, where the files should be stored
-//     *                  (must end with separator), default is used when null.
-//     */
-//    public void saveToFile(String directory) {
-//        try {
-//            if (directory == null) {
-//                directory = PHOTOS_DIR;
-//            }
-//            File fdir = new File(directory + place_id + File.separator);
-//            fdir.mkdirs();
-//            for (int i = 0; i < photos.size(); i++) {
-//                Photo photo = photos.get(i);
-//                File fphoto = new File(fdir.getPath() + File.separator + i + ".png");
-//                ImageIO.write(photo.image.toBufferedImage(), "png", fphoto);
-//            }
-//        } catch (IOException ex) {
-//            Logger.getLogger(Photo.class.getName()).log(Level.SEVERE, null, ex);
-//        }
-//    }
     
     /**
      * Gets the unique identifier for this place.
@@ -97,13 +69,11 @@ public class Place implements Serializable {
         if (photos != null) {
             phs = new ArrayList<>();
             for (Photo p : photos) {
-                if (p.image != null) {//&& !(p.image instanceof SImage)) {
-//                    p.image = p.image.getSImage();
-                    p.image = new SImage(p.image.getImage(), p.image.width, p.image.height);
+                if (p.sImage != null) {
+                    p.sImage = new SImage(p.sImage);
                 }
-                if (p._image != null) {//&& !(p._image instanceof SImage)) {
-//                    p._image = p._image.getSImage();
-                    p._image = new SImage(p._image.getImage(), p._image.width, p._image.height);
+                if (p._sImage != null) {
+                    p._sImage = new SImage(p._sImage);
                 }
                 phs.add(p);
             }
