@@ -49,6 +49,15 @@ public class Place implements Serializable {
         return gfields.get("place_id");
     }
     
+    /**
+     * Sets the unique identifier for this place.
+     * 
+     * @param placeID The unique identifier for this place.
+     */
+    public void setID(String placeID) {
+        gfields.put("place_id", placeID);
+    }
+    
     @Override
     public String toString() {
         return "Place:"

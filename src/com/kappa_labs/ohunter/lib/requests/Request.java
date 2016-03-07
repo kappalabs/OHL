@@ -90,7 +90,7 @@ abstract public class Request implements Serializable {
     
     @Override
     public String toString() {
-        return this.getClass().getName() + " [" + (player == null ? "uid" : player.getUID()) + "]:" + getTimeStamp();
+        return this.getClass().getSimpleName() + " [" + (player == null ? "uid" : player.getUID()) + "]: " + getTimeStamp();
     }
     
 }
