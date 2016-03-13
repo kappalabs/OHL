@@ -8,6 +8,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
+import java.util.List;
 
 /**
  * Class for storing information about place, retrieved by Google API.
@@ -32,7 +33,7 @@ public class Place implements Serializable {
      * Stores all photos assigned to this specific place.
      * Always not null.
      */
-    private transient ArrayList<Photo> photos;
+    private transient List<Photo> photos;
 
     
     /**
@@ -135,7 +136,7 @@ public class Place implements Serializable {
      * 
      * @return The list of all photos for this place.
      */
-    public ArrayList<Photo> getPhotos() {
+    public List<Photo> getPhotos() {
         return photos;
     }
     
@@ -155,7 +156,7 @@ public class Place implements Serializable {
      */
     private void writeObject(ObjectOutputStream oos) throws IOException {
         oos.defaultWriteObject();
-        ArrayList<Photo> phs = new ArrayList<>();
+        List<Photo> phs = new ArrayList<>();
         for (Photo p : photos) {
             if (p.sImage != null) {
                 p.sImage = new SImage(p.sImage);
@@ -177,7 +178,7 @@ public class Place implements Serializable {
      */
     private void readObject(ObjectInputStream ois) throws IOException, ClassNotFoundException {
         ois.defaultReadObject();
-        photos = (ArrayList<Photo>) ois.readObject();
+        photos = (List<Photo>) ois.readObject();
         /* Photos cannot be null */
         if (photos == null) {
             photos = new ArrayList<>();
