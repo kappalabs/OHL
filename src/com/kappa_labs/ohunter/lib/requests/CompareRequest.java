@@ -10,23 +10,28 @@ import com.kappa_labs.ohunter.lib.entities.Player;
 public class CompareRequest extends Request {
     
     /**
-     * Photos to be compared.
+     * Reference Photo, similarity is measured to this one.
      */
-    protected Photo photo1, photo2;
+    protected Photo referencePhoto;
+    /**
+     * Images, that will be match against reference.
+     */
+    protected Photo[] similarPhotos;
 
     
     /**
-     * Creates a new request for comparsion between given photos.
+     * Creates a new request for comparison between given reference photo and
+     * an array of photos. Only the highest similarity will be returned.
      * 
      * @param player Player, that creates the request.
-     * @param photo1 First photo.
-     * @param photo2 Second photo.
+     * @param referencPhoto Reference Photo, similarity is measured to this one.
+     * @param similarPhotos Images, that will be compared to the reference photo.
      */
-    public CompareRequest(Player player, Photo photo1, Photo photo2) {
+    public CompareRequest(Player player, Photo referencPhoto, Photo[] similarPhotos) {
         super(player);
         
-        this.photo1 = photo1;
-        this.photo2 = photo2;
+        this.referencePhoto = referencPhoto;
+        this.similarPhotos = similarPhotos;
     }
     
     /**
@@ -37,8 +42,8 @@ public class CompareRequest extends Request {
     public CompareRequest(CompareRequest request) {
         super(request);
         
-        photo1 = request.photo1;
-        photo2 = request.photo2;
+        referencePhoto = request.referencePhoto;
+        similarPhotos = request.similarPhotos;
     }
 
 }
