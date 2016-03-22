@@ -9,9 +9,13 @@ import com.kappa_labs.ohunter.lib.entities.Player;
 public class CompletePlaceRequest extends Request {
     
     /**
-     * Place ID from Google Places of the Place to block.
+     * Place ID, from Google Places, of the completed place.
      */
     protected String placeID;
+    /**
+     * Photo reference, from Google Places, of the image that was photographed.
+     */
+    protected String photoReference;
 
     
     /**
@@ -19,12 +23,14 @@ public class CompletePlaceRequest extends Request {
      * for given player.
      * 
      * @param player Player, who completed the place.
-     * @param placeID Place ID from Google Places of the place, that was completed.
+     * @param placeID Place ID, from Google Places, of the completed place.
+     * @param photoReference Photo reference, from Google Places, of the image that was photographed.
      */
-    public CompletePlaceRequest(Player player, String placeID) {
+    public CompletePlaceRequest(Player player, String placeID, String photoReference) {
         super(player);
         
         this.placeID = placeID;
+        this.photoReference = photoReference;
     }
     
     /**
@@ -36,6 +42,7 @@ public class CompletePlaceRequest extends Request {
         super(request);
         
         placeID = request.placeID;
+        photoReference = request.photoReference;
     }
 
 }
