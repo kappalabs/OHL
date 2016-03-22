@@ -37,4 +37,13 @@ public class BlockPlaceRequest extends Request {
         placeID = request.placeID;
     }
 
+    /**
+     * Gets the Place ID of the Place to block.
+     * 
+     * @return The Place ID of the Place to block.
+     */
+    public String getPlaceID() {
+        return placeID;
+    }
+
 }

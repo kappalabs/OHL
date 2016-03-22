@@ -46,4 +46,22 @@ public class CompareRequest extends Request {
         similarPhotos = request.similarPhotos;
     }
 
+    /**
+     * Gets the reference Photo, to which the similarity is measured.
+     * 
+     * @return The reference Photo, to which the similarity is measured.
+     */
+    public Photo getReferencePhoto() {
+        return referencePhoto;
+    }
+
+    /**
+     * Gets the array of photos, that will be compared to the reference photo.
+     * 
+     * @return The array of photos, that will be compared to the reference photo.
+     */
+    public Photo[] getSimilarPhotos() {
+        return similarPhotos;
+    }
+    
 }

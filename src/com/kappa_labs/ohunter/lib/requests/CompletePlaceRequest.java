@@ -13,7 +13,7 @@ public class CompletePlaceRequest extends Request {
      */
     protected String placeID;
     /**
-     * Photo reference, from Google Places, of the image that was photographed.
+     * Photo reference, from Google Places, of the image that was used as a reference photo.
      */
     protected String photoReference;
 
@@ -24,7 +24,7 @@ public class CompletePlaceRequest extends Request {
      * 
      * @param player Player, who completed the place.
      * @param placeID Place ID, from Google Places, of the completed place.
-     * @param photoReference Photo reference, from Google Places, of the image that was photographed.
+     * @param photoReference Photo reference, from Google Places, of the image that was used as a reference photo.
      */
     public CompletePlaceRequest(Player player, String placeID, String photoReference) {
         super(player);
@@ -43,6 +43,24 @@ public class CompletePlaceRequest extends Request {
         
         placeID = request.placeID;
         photoReference = request.photoReference;
+    }
+
+    /**
+     * Gets the Place ID of the place to be completed.
+     * 
+     * @return The Place ID of the place to be completed.
+     */
+    public String getPlaceID() {
+        return placeID;
+    }
+
+    /**
+     * Gets the photo reference from Google Places of the photo, that was used as a reference photo.
+     * 
+     * @return The photo reference from Google Places of the photo, that was used as a reference photo.
+     */
+    public String getPhotoReference() {
+        return photoReference;
     }
 
 }
