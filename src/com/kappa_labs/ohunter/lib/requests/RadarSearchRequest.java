@@ -7,20 +7,15 @@ import com.kappa_labs.ohunter.lib.entities.Player;
  * Request to make a radar search and return Places with only Place IDs from Google Places API.
  */
 public class RadarSearchRequest extends Request {
-    
-    /**
-     * Types of objects, that will be returned as result photos, supported by GAPI.
-     */
-    public static final String TYPES = "university|synagogue|city_hall|church|museum|mosque|";
 
     /**
      * Latitude of the circular area.
      */
-    protected double lat;
+    protected double latitude;
     /**
      * Longitude of the circular area.
      */
-    protected double lng;
+    protected double longitude;
     /**
      * Radius of the circular area.
      */
@@ -28,33 +23,62 @@ public class RadarSearchRequest extends Request {
     
     
     /**
-     * Search will be based on given location and area radius. Results will
-     * be filtered based on given Player.
-     * 
+     * Creates a new request to search for places in circular area defined by
+     * given location and area radius. Results will be filtered based on given
+     * Player.
+     *
      * @param player The player who is requesting the search.
-     * @param lat The latitude of location.
-     * @param lng The longitude of location.
+     * @param latitude The latitude of location.
+     * @param longitude The longitude of location.
      * @param radius The radius of selected area in meters.
      */
-    public RadarSearchRequest(Player player, double lat, double lng, int radius) {
+    public RadarSearchRequest(Player player, double latitude, double longitude, int radius) {
         super(player);
         
-        this.lat = lat;
-        this.lng = lng;
+        this.latitude = latitude;
+        this.longitude = longitude;
         this.radius = radius;
     }
     
     /**
      * Create deep copy of the given request.
      * 
+     * @param <R> Class extending this class.
      * @param request Request to be copied.
      */
-    public RadarSearchRequest(RadarSearchRequest request) {
+    public <R extends RadarSearchRequest> RadarSearchRequest(R request) {
         super(request);
         
-        lat = request.lat;
-        lng = request.lng;
+        latitude = request.latitude;
+        longitude = request.longitude;
         radius = request.radius;
+    }
+
+    /**
+     * Gets the latitude of the circular area.
+     * 
+     * @return The latitude of the circular area.
+     */
+    public double getLatitude() {
+        return latitude;
+    }
+
+    /**
+     * Gets the longitude of the circular area.
+     * 
+     * @return The longitude of the circular area.
+     */
+    public double getLongitude() {
+        return longitude;
+    }
+
+    /**
+     * Gets the radius of the circular area.
+     * 
+     * @return The radius of the circular area.
+     */
+    public int getRadius() {
+        return radius;
     }
     
 }

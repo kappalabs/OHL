@@ -16,7 +16,7 @@ abstract public class Request implements Serializable {
     /**
      * Unique identifier of the requester.
      */
-    protected int uid;
+    protected final int uid;
     /**
      * Timestamp of creation of the request.
      */
@@ -24,14 +24,16 @@ abstract public class Request implements Serializable {
     /**
      * Creator of this request.
      */
-    protected Player player;
+    protected final Player player;
 
     
     /**
      * Creates a new request, sets the timestamp to the current time.
      */
     public Request() {
+        this.uid = 0;
         this.timestamp = new Timestamp(Calendar.getInstance().getTime().getTime());
+        this.player = null;
     }
 
     /**
@@ -40,18 +42,18 @@ abstract public class Request implements Serializable {
      * @param player Player who makes the request.
      */
     public Request(Player player) {
-        this();
-
-        this.player = player;
         this.uid = player.getUID();
+        this.timestamp = new Timestamp(Calendar.getInstance().getTime().getTime());
+        this.player = player;
     }
 
     /**
      * Creates a deep copy of the given request.
      *
+     * @param <R> Class extending this class.
      * @param request Request to be copied.
      */
-    public Request(Request request) {
+    public <R extends Request> Request(R request) {
         this.uid = request.uid;
         this.timestamp = request.timestamp;
         this.player = request.player;
@@ -68,12 +70,30 @@ abstract public class Request implements Serializable {
     }
 
     /**
+     * Gets the unique identifier of the requester.
+     *
+     * @return The unique identifier of the requester.
+     */
+    public int getUid() {
+        return uid;
+    }
+
+    /**
      * Gets the timestamp of creation of this request.
      *
      * @return The timestamp of creation of this request.
      */
     public Timestamp getTimestamp() {
         return timestamp;
+    }
+
+    /**
+     * Gets the creator of this request.
+     *
+     * @return The creator of this request.
+     */
+    public Player getPlayer() {
+        return player;
     }
 
     /**

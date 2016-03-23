@@ -1,4 +1,3 @@
-
 package com.kappa_labs.ohunter.lib.requests;
 
 import com.kappa_labs.ohunter.lib.entities.Player;
@@ -9,21 +8,22 @@ import com.kappa_labs.ohunter.lib.entities.Player;
 public class ResetPlayerRequest extends Request {
 
     /**
-     * Creates a new request to reset progress of given player,
-     * as if it was a new player.
-     * 
+     * Creates a new request to reset progress of given player, as if it was
+     * a new player.
+     *
      * @param player The player, which will be reset.
      */
     public ResetPlayerRequest(Player player) {
         super(player);
     }
-    
+
     /**
      * Create deep copy of the given request.
-     * 
+     *
+     * @param <R> Class extending this class.
      * @param request Request to be copied.
      */
-    public ResetPlayerRequest(ResetPlayerRequest request) {
+    public <R extends ResetPlayerRequest> ResetPlayerRequest(R request) {
         super(request);
     }
 

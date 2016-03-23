@@ -33,13 +33,23 @@ public class RegisterRequest extends Request {
     /**
      * Create deep copy of the given request.
      * 
+     * @param <R> Class extending this class.
      * @param request Request to be copied.
      */
-    public RegisterRequest(RegisterRequest request) {
+    public <R extends RegisterRequest> RegisterRequest(R request) {
         super(request);
         
         nickname = request.nickname;
         password = request.password;
+    }
+
+    /**
+     * Gets the nickname of the new player.
+     * 
+     * @return The nickname of the new player.
+     */
+    public String getNickname() {
+        return nickname;
     }
 
 }

@@ -37,6 +37,17 @@ public class Player implements Serializable {
     }
     
     /**
+     * Create a new player object by copying other player object.
+     * 
+     * @param player The player that will be copied.
+     */
+    public Player(Player player) {
+        this.UID = player.UID;
+        this.nickname = player.nickname;
+        this.score = player.score;
+    }
+    
+    /**
      * Gets the player's UID.
      * 
      * @return The player's UID.
@@ -70,6 +81,15 @@ public class Player implements Serializable {
      */
     public void setScore(int score) {
         this.score = score;
+    }
+    
+    /**
+     * Adds given number to the player's score.
+     * 
+     * @param gain The number to be added to the player's score.
+     */
+    public void addScore(int gain) {
+        this.score += gain;
     }
     
     @Override

@@ -20,10 +20,11 @@ public class UpdatePlayerRequest extends Request {
     /**
      * Create deep copy of the given request.
      * 
+     * @param <R> Class extending this class.
      * @param request Request to be copied.
      */
-    public UpdatePlayerRequest(UpdatePlayerRequest request) {
-        player = request.player;
+    public <R extends UpdatePlayerRequest> UpdatePlayerRequest(R request) {
+        super(request.player);
     }
 
 }
