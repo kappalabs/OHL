@@ -49,13 +49,15 @@ abstract public class Request implements Serializable {
 
     /**
      * Creates a deep copy of the given request.
+     * The timestamp set to the current time.
      *
      * @param <R> Class extending this class.
      * @param request Request to be copied.
      */
     public <R extends Request> Request(R request) {
         this.uid = request.uid;
-        this.timestamp = request.timestamp;
+//        this.timestamp = request.timestamp;
+        this.timestamp = new Timestamp(Calendar.getInstance().getTime().getTime());
         this.player = request.player;
     }
 
