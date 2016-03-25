@@ -17,9 +17,13 @@ public class CompletePlaceRequest extends Request {
      */
     protected String photoReference;
     /**
-     * Number of points that should be added for completing this place.
+     * Number of points given for finding this target.
      */
-    protected int gain;
+    protected int discoveryGain;
+    /**
+     * Number of points given for photo similarity.
+     */
+    protected int similarityGain;
 
     
     /**
@@ -39,20 +43,22 @@ public class CompletePlaceRequest extends Request {
     }
 
     /**
-     * Creates a new request to complete a place and add a gain to the player.
+     * Creates a new request to complete a place and add a score gain to the player.
      *
      * @param player Player, who completed the place.
      * @param placeID Place ID, from Google Places, of the completed place.
      * @param photoReference Photo reference, from Google Places, of the image
      * that was used as a reference photo.
-     * @param gain The number of points given for completing this place.
+     * @param discoveryGain The number of points given for finding this target.
+     * @param similarityGain The number of points given for photo similarity.
      */
-    public CompletePlaceRequest(Player player, String placeID, String photoReference, int gain) {
+    public CompletePlaceRequest(Player player, String placeID, String photoReference, int discoveryGain, int similarityGain) {
         super(player);
 
         this.placeID = placeID;
         this.photoReference = photoReference;
-        this.gain = gain;
+        this.discoveryGain = discoveryGain;
+        this.similarityGain = similarityGain;
     }
 
     /**
@@ -66,7 +72,8 @@ public class CompletePlaceRequest extends Request {
 
         placeID = request.placeID;
         photoReference = request.photoReference;
-        gain = request.gain;
+        discoveryGain = request.discoveryGain;
+        similarityGain = request.similarityGain;
     }
 
     /**
@@ -90,12 +97,21 @@ public class CompletePlaceRequest extends Request {
     }
 
     /**
-     * Gets the number of points given for completing this place.
+     * Gets the number of points given for finding this target.
      * 
-     * @return The number of points given for completing this place.
+     * @return The number of points given for finding this target.
      */
-    public int getGain() {
-        return gain;
+    public int getDiscoveryGain() {
+        return discoveryGain;
+    }
+
+    /**
+     * Gets the number of points given for photo similarity.
+     * 
+     * @return The number of points given for photo similarity.
+     */
+    public int getSimilarityGain() {
+        return similarityGain;
     }
 
 }
