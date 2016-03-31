@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * Class for storing information about place, retrieved by Google API.
@@ -27,13 +28,13 @@ public class Place implements Serializable {
      * Stores information given from Google Place Details request.
      * Always not null.
      */
-    private final HashMap<String, String> gfields;
+    protected Map<String, String> gfields;
     
     /**
      * Stores all photos assigned to this specific place.
      * Always not null.
      */
-    private transient List<Photo> photos;
+    protected transient List<Photo> photos;
 
     
     /**
@@ -83,6 +84,15 @@ public class Place implements Serializable {
     }
     
     /**
+     * Puts the whole map into the local hash table.
+     * 
+     * @param map The map that should be added to the local hash table.
+     */
+    public void putGFields(Map<? extends String, ? extends String> map) {
+        gfields.putAll(map);
+    }
+    
+    /**
      * Gets field with given name from internal hash table.
      * 
      * @param fieldName The name of field to retrieve.
@@ -97,7 +107,7 @@ public class Place implements Serializable {
      * 
      * @return The whole hash table of gFields.
      */
-    public HashMap<String, String> getGfields() {
+    public Map<String, String> getGfields() {
         return gfields;
     }
     
