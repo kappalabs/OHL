@@ -33,6 +33,10 @@ public class Response implements Serializable {
      * List of Places if requested, otherwise null.
      */
     public Place[] places;
+    /**
+     * List of Players if requested, otherwise null.
+     */
+    public Player[] players;
 
     
     /**
