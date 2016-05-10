@@ -1,6 +1,7 @@
 
 package com.kappa_labs.ohunter.lib.requests;
 
+import com.kappa_labs.ohunter.lib.net.Request;
 import com.kappa_labs.ohunter.lib.entities.Player;
 
 /**

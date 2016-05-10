@@ -1,6 +1,8 @@
 
 package com.kappa_labs.ohunter.lib.requests;
 
+import com.kappa_labs.ohunter.lib.net.Request;
+
 /**
  * Request to register a new player.
  */

@@ -1,8 +1,6 @@
-package com.kappa_labs.ohunter.lib.requests;
+package com.kappa_labs.ohunter.lib.net;
 
 import com.kappa_labs.ohunter.lib.entities.Player;
-import com.kappa_labs.ohunter.lib.net.OHException;
-import com.kappa_labs.ohunter.lib.net.Response;
 import java.io.Serializable;
 import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
@@ -48,8 +46,8 @@ abstract public class Request implements Serializable {
     }
 
     /**
-     * Creates a deep copy of the given request.
-     * The timestamp set to the current time.
+     * Creates a deep copy of the given request. The timestamp is set to the
+     * current time.
      *
      * @param <R> Class extending this class.
      * @param request Request to be copied.

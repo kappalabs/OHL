@@ -1,5 +1,6 @@
 package com.kappa_labs.ohunter.lib.requests;
 
+import com.kappa_labs.ohunter.lib.net.Request;
 import com.kappa_labs.ohunter.lib.entities.Player;
 
 /**
@@ -8,7 +9,7 @@ import com.kappa_labs.ohunter.lib.entities.Player;
 public class BlockPlaceRequest extends Request {
 
     /**
-     * Place ID from Google Places of the Place to block.
+     * Place ID from Google Places of the place to block.
      */
     protected String placeID;
 
@@ -39,9 +40,9 @@ public class BlockPlaceRequest extends Request {
     }
 
     /**
-     * Gets the Place ID of the Place to block.
+     * Gets the Place ID of the place to block.
      *
-     * @return The Place ID of the Place to block.
+     * @return The Place ID of the place to block.
      */
     public String getPlaceID() {
         return placeID;

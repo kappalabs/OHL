@@ -1,5 +1,6 @@
 package com.kappa_labs.ohunter.lib.net;
 
+import com.kappa_labs.ohunter.lib.entities.Photo;
 import com.kappa_labs.ohunter.lib.entities.Place;
 import com.kappa_labs.ohunter.lib.entities.Player;
 import java.io.Serializable;
@@ -22,13 +23,17 @@ public class Response implements Serializable {
     private final Timestamp timestamp;
 
     /**
-     * Player data object if requested, otherwise null.
+     * Player who made the request for this response.
      */
     public Player player;
     /**
      * Similarity measure if requested, otherwise NaN.
      */
     public float similarity = Float.NaN;
+    /**
+     * List of Photos if requested, otherwise null.
+     */
+    public Photo[] photos;
     /**
      * List of Places if requested, otherwise null.
      */

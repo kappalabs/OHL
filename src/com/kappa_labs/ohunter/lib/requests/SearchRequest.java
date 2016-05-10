@@ -1,19 +1,20 @@
 package com.kappa_labs.ohunter.lib.requests;
 
+import com.kappa_labs.ohunter.lib.net.Request;
 import com.kappa_labs.ohunter.lib.entities.Photo;
 import com.kappa_labs.ohunter.lib.entities.Player;
 
 /**
- * Request to make a search and return places for given area.
+ * Request to make a radar search and return targets for given area.
  */
 public class SearchRequest extends Request {
 
     /**
-     * Latitude of the circular area.
+     * Latitude of center of the circular area.
      */
     protected double latitude;
     /**
-     * Longitude of the circular area.
+     * Longitude of center of the circular area.
      */
     protected double longitude;
     /**
@@ -39,8 +40,8 @@ public class SearchRequest extends Request {
      * of photos will be adjusted to suffice the requirements.
      *
      * @param player The player who is requesting the search.
-     * @param lat The latitude of location.
-     * @param lng The longitude of location.
+     * @param lat The latitude of center of the circular area.
+     * @param lng The longitude of center of the circular area.
      * @param radius The radius of selected area in meters.
      * @param daytime The requested preffered daytime
      * @param width The maximum requested width of photos.
@@ -76,18 +77,18 @@ public class SearchRequest extends Request {
     }
 
     /**
-     * Gets the latitude of the circular area.
+     * Gets the latitude of center of the circular area.
      * 
-     * @return The latitude of the circular area.
+     * @return The latitude of center of the circular area.
      */
     public double getLatitude() {
         return latitude;
     }
 
     /**
-     * Gets the longitude of the circular area.
+     * Gets the longitude of center of the circular area.
      * 
-     * @return The longitude of the circular area.
+     * @return The longitude of center of the circular area.
      */
     public double getLongitude() {
         return longitude;

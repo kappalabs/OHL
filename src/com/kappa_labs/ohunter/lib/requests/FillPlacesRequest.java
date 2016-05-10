@@ -1,5 +1,6 @@
 package com.kappa_labs.ohunter.lib.requests;
 
+import com.kappa_labs.ohunter.lib.net.Request;
 import com.kappa_labs.ohunter.lib.entities.Photo;
 import com.kappa_labs.ohunter.lib.entities.Place;
 import com.kappa_labs.ohunter.lib.entities.Player;
@@ -77,7 +78,7 @@ public class FillPlacesRequest extends Request {
     }
 
     /**
-     * Create deep copy of the given request.
+     * Create copy of the given request.
      *
      * @param <R> Class extending this class.
      * @param request Request to be copied.

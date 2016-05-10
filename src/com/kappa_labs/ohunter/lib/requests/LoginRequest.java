@@ -1,5 +1,7 @@
 package com.kappa_labs.ohunter.lib.requests;
 
+import com.kappa_labs.ohunter.lib.net.Request;
+
 /**
  * Request to login a player into the application.
  */
