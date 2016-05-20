@@ -13,8 +13,18 @@ public class OHException extends Exception implements Serializable {
      */
     public enum EXType {
         DUPLICATE_USER, INCORRECT_PASSWORD, INCORRECT_USER, INCORRECT_PASS_OR_NO_USER,
-        DATABASE_ERROR, /* this error type means try it later again */
+        /**
+         * Try it later again, error occured in database.
+         */
+        DATABASE_ERROR,
+        /**
+         * Client (or server) uses old version of OHL.
+         */
         SERIALIZATION_INCOMPATIBLE,
+        /**
+         * Try it later, server has a lot of work to do now.
+         */
+        SERVER_OCCUPIED,
         OTHER
     }
     

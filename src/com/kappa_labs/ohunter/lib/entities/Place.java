@@ -168,6 +168,9 @@ public class Place implements Serializable {
         oos.defaultWriteObject();
         List<Photo> phs = new ArrayList<>();
         for (Photo p : photos) {
+            if (p == null) {
+                continue;
+            }
             if (p.sImage != null) {
                 p.sImage = new SImage(p.sImage);
             }
